@@ -5,6 +5,9 @@ const addExpBtn = document.querySelector(
   ".add-expense-btn"
 )! as HTMLButtonElement;
 
+const debitDiv = document.querySelector('.expense-debit-item-container')! as HTMLDivElement
+const creditDiv = document.querySelector('.expense-credit-item-container') ! as HTMLDivElement
+let expenseItems : Expense[] = [];
 class Expense {
     private static currentId: number = 0;
     readonly id: number = 0;
@@ -19,12 +22,23 @@ class Expense {
         this.id = ++Expense.currentId;
     }
 }
-
+function DisplayExpenseItems(){
+    creditDiv.innerHTML = '';
+    debitDiv.innerHTML = '';
+    for(let i = 0; i < expenseItems.length ; i++){
+        let expItem = expenseItems[i];
+        let containerDiv = expItem.type === 'credit'? creditDiv : debitDiv;
+        containerDiv?.insertAdjacentHTML('beforeend', `<h3>${expItem.description}</h3>` )
+    }
+}
 addExpBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
     let type: 'credit' | 'debit' = expType.value === 'credit' ? 'credit' : 'debit';
     const exp = new Expense(type, expDesc.value, Number(expAmount.value));
-    console.log(exp.amount);
-    console.log(exp);
+    expenseItems.push(exp)
+    console.log(expenseItems);
+    // console.log(exp.amount);
+    // console.log(exp);
+    DisplayExpenseItems()
 });

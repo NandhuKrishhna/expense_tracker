@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" type="text/css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" type="text/css" rel="stylesheet" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="ex-tracker-header">
-        Track<span style="font-weight: bolder; color: #FF5733">I</span>t
+      Track<span style="font-weight: bolder; color: #ff5733">I</span>t
     </div>
-    <div class="total-expense-amount">
-        0.00
-    </div>
+    <div class="total-expense-amount">0.00</div>
     <div class="ex-tracker-form-area">
-        <form>
-            <select id="expense-type">
-                <option>Select Type</option>
-                <option value="credit">Credit</option>
-                <option value="debit">Debit</option>
-            </select>
-            <input type="text" placeholder="Enter a Description" id="desc">
-            <input type="text" placeholder="Enter an Amount" id="amount">
-            <button class="add-expense-btn">Add Expense</button>
-        </form>
+      <form>
+        <select id="expense-type">
+          <option>Select Type</option>
+          <option value="credit">Credit</option>
+          <option value="debit">Debit</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Enter a Description"
+          id="desc"
+          list="expense-suggestions"
+        />
+        <datalist id="expense-suggestions">
+          <option value="Salary"></option>
+          <option value="Movie"></option>
+          <option value="Gym"></option>
+          <option value="Rent"></option>
+          <option value="Groceries"></option>
+          <option value="Dining Out"></option>
+          <option value="Bonus"></option>
+        </datalist>
+        <input
+          type="text"
+          placeholder="Enter an Amount"
+          id="amount"
+          list="amount-suggestions"
+        />
+        <datalist id="amount-suggestions">
+          <option value="100"></option>
+          <option value="250"></option>
+          <option value="500"></option>
+          <option value="750"></option>
+          <option value="1000"></option>
+          <option value="1500"></option>
+          <option value="2000"></option>
+          <option value="2500"></option>
+          <option value="3000"></option>
+          <option value="4000"></option>
+          <option value="5000"></option>
+          <option value="7500"></option>
+          <option value="10000"></option>
+          <option value="15000"></option>
+          <option value="20000"></option>
+          <option value="25000"></option>
+          <option value="30000"></option>
+          <option value="40000"></option>
+          <option value="50000"></option>
+        </datalist>
+
+        <button class="add-expense-btn">Add Expense</button>
+      </form>
     </div>
     <div class="expense-item-container">
-        <div class="expense-debit-item-container">
+      <div class="expense-debit-item-container">
 
-        </div>
-        <div class="expense-credit-item-container">
-
-        </div>
+      </div>
+      <div class="expense-credit-item-container">
+        
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
